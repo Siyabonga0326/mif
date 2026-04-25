@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>About Us | Mzurayza Ingwenya Foundation</title>
   <meta name="description" content="Learn about Mzurayza Ingwenya Foundation — our history, vision, mission and the work we do for rural youth in KwaMaphumulo, KwaZulu-Natal." />
-  <!-- consolidated styles (same base + about page specifics) -->
   <style>
-    /* ---------- GLOBAL STYLES (shared with homepage) ---------- */
+    /* ---------- GLOBAL STYLES (shared) ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -135,11 +134,12 @@
       font-weight: 600;
       transition: all 0.2s;
       text-align: center;
+      cursor: pointer;
+      border: none;
     }
     .btn-primary {
       background: #1D9E75;
       color: white;
-      border: none;
     }
     .btn-primary:hover {
       background: #0F7A59;
@@ -153,39 +153,97 @@
     .btn-outline:hover {
       background: #1D9E7510;
     }
-    /* page hero (about specific) */
+    
+    /* ---------- CREATIVE HERO (About page special) ---------- */
     .page-hero {
-      background: linear-gradient(110deg, #0F342C 0%, #1C6049 100%);
+      position: relative;
+      background: linear-gradient(125deg, #0A2B23 0%, #1B4E3F 50%, #10362C 100%);
       color: white;
-      padding: 5rem 0 4rem;
+      padding: 4rem 0 5rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    /* animated pattern overlay */
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" opacity="0.08"><path fill="none" stroke="%23F5C542" stroke-width="0.6" d="M20 20 L60 20 M20 30 L50 30 M20 40 L60 40 M20 50 L50 50 M20 60 L60 60 M30 20 L30 60 M40 20 L40 50 M50 20 L50 60 M60 20 L60 50 M70 20 L70 60"></path><circle cx="40" cy="40" r="3" fill="%23F5C542" opacity="0.3"/><circle cx="20" cy="20" r="2" fill="%23FFFFFF" opacity="0.2"/></svg>');
+      background-repeat: repeat;
+      opacity: 0.4;
+      pointer-events: none;
+      animation: slowDrift 42s linear infinite;
+      z-index: 0;
+    }
+    @keyframes slowDrift {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(4%, 2%) rotate(1deg); }
+    }
+    .hero-content-about {
+      position: relative;
+      z-index: 2;
       text-align: center;
-    }
-    .page-hero-eyebrow {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      background: rgba(255,255,255,0.15);
-      display: inline-block;
-      padding: 0.2rem 1.2rem;
-      border-radius: 60px;
-      margin-bottom: 1.25rem;
-    }
-    .page-hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .page-hero h1 em {
-      font-style: normal;
-      border-bottom: 3px solid #F5C542;
-    }
-    .page-hero p {
-      font-size: 1.2rem;
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
-      opacity: 0.9;
     }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(245, 197, 66, 0.16);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.6rem;
+      border: 0.5px solid rgba(245,197,66,0.3);
+    }
+    .hero-badge span {
+      font-size: 1rem;
+    }
+    .hero-title-about {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF, #F5E6C4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .hero-title-about em {
+      font-style: normal;
+      border-bottom: 4px solid #F5C542;
+      display: inline-block;
+      padding-bottom: 0.1rem;
+    }
+    .hero-desc-about {
+      font-size: 1.2rem;
+      max-width: 640px;
+      margin: 1rem auto 0;
+      opacity: 0.92;
+      color: #E9F3EF;
+    }
+    .hero-floating-icon {
+      position: absolute;
+      bottom: 1rem;
+      right: 1.5rem;
+      font-size: 3rem;
+      opacity: 0.1;
+      pointer-events: none;
+      transform: rotate(8deg);
+    }
+    @media (max-width: 720px) {
+      .hero-title-about { font-size: 2.2rem; }
+      .hero-desc-about { font-size: 1rem; }
+    }
+    
     /* sections */
     section {
       padding: 5rem 0;
@@ -193,12 +251,12 @@
     .eyebrow {
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       color: #1D9E75;
       font-weight: 600;
     }
     .section-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       font-weight: 700;
       line-height: 1.2;
       margin: 0.5rem 0 1rem;
@@ -252,7 +310,7 @@
       width: 28px;
       height: 28px;
       stroke: #1D9E75;
-      stroke-width: 1.5;
+      stroke-width: 1.6;
       fill: none;
     }
     .info-row-label {
@@ -371,7 +429,6 @@
       transform: translateY(0);
     }
     @media (max-width: 720px) {
-      .page-hero h1 { font-size: 2rem; }
       .container { padding: 0 1.5rem; }
       section { padding: 3rem 0; }
       .obj-card { flex-direction: column; gap: 0.5rem; }
@@ -380,7 +437,7 @@
 </head>
 <body>
 
-<!-- ===== SHARED NAVIGATION (same as homepage) ===== -->
+<!-- ===== SHARED NAVIGATION ===== -->
 <nav class="navbar" id="main-nav">
   <div class="container">
     <div class="navbar-inner">
@@ -392,10 +449,10 @@
         </div>
       </a>
       <ul class="navbar-nav">
-        <li><a href="index.html"  class="nav-link">Home</a></li>
-        <li><a href="aboutus.html" class="nav-link active">About Us</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="aboutus.html"   class="nav-link active">About Us</a></li>
         <li><a href="ourprograms.html" class="nav-link">Our Programs</a></li>
-        <li><a href="team.html" class="nav-link">Our Team</a></li>
+        <li><a href="team.html"   class="nav-link">Our Team</a></li>
         <li><a href="contactus.html"   class="nav-link nav-cta btn btn-primary">Get Involved</a></li>
       </ul>
       <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
@@ -404,20 +461,27 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html"  class="nav-link">Home</a>
+    <a href="index.html"   class="nav-link">Home</a>
     <a href="aboutus.html"   class="nav-link active">About Us</a>
     <a href="ourprograms.html"   class="nav-link">Our Programs</a>
     <a href="team.html"   class="nav-link">Our Team</a>
-    <a href="#"   class="nav-link nav-cta btn btn-primary">Get Involved</a>
+    <a href="contactus.html"   class="nav-link nav-cta btn btn-primary">Get Involved</a>
   </div>
 </nav>
 
 <main>
-   <!-- ════ PAGE HERO ════ -->
+  <!-- CREATIVE HERO SECTION (About page) -->
   <section class="page-hero">
     <div class="container">
-      <div class="page-hero-breadcrumb">MIF / About Us</div>  
+      <div class="hero-content-about">
+        <div class="hero-badge">
+          <span>✦</span> MIF / About Us <span>✦</span>
+        </div>
+        <h1 class="hero-title-about">Rooted in <em>Maphumulo</em><br>Reaching for the future</h1>
+        <p class="hero-desc-about">A grassroots NPO born from community, driven by youth potential — turning rural talent into lasting impact.</p>
+      </div>
     </div>
+    <div class="hero-floating-icon">𓃀</div>
   </section>
 
   <!-- INTRO + VISION/MISSION -->
@@ -539,7 +603,7 @@
   </section>
 </main>
 
-<!-- FOOTER (identical to homepage) -->
+<!-- FOOTER (identical) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -554,10 +618,10 @@
         <h5>Quick Links</h5>
         <ul class="footer-links">
           <li><a href="index.html"  >Home</a></li>
-          <li><a href="aboutus.html"  >About Us</a></li>
-          <li><a href="ourprograms.html"  >Our Programs</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="ourprograms.html">Our Programs</a></li>
           <li><a href="team.html" >Our Team</a></li>
-          <li><a href="#"  >Contact Us</a></li>
+          <li><a href="contactus.html" >Get Involved</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -577,10 +641,9 @@
   </div>
 </footer>
 
-<!-- unified js: nav active, mobile menu, scroll reveal, navigation simulation -->
 <script>
   (function() {
-    const pageContent = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Contact Us' };
+    const pageMap = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Get Involved' };
     function setActive(pageId) {
       document.querySelectorAll('.nav-link[data-page]').forEach(link => {
         if(link.getAttribute('data-page') === pageId) link.classList.add('active');
@@ -591,20 +654,17 @@
       window.location.hash = pageId;
       setActive(pageId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      console.log(`📄 Navigated to ${pageContent[pageId] || pageId}`);
     }
     document.querySelectorAll('[data-page]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const target = anchor.getAttribute('data-page');
-        if(target && pageContent[target]) navigateTo(target);
+        if(target && pageMap[target]) navigateTo(target);
       });
     });
     const initHash = window.location.hash.slice(1) || 'aboutus';
     setActive(initHash);
-    if(!window.location.hash) navigateTo('aboutus');
     
-    // mobile toggle
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if(hamburger && mobileMenu) {
@@ -625,17 +685,14 @@
         });
       });
     }
-    // reveal observer
     const reveals = document.querySelectorAll('.reveal');
-    if(reveals.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(el => observer.observe(el));
-    }
-    // navbar shadow
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
+    
     const navbar = document.querySelector('.navbar');
-    if(navbar) window.addEventListener('scroll', () => navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : '');
+    window.addEventListener('scroll', () => { navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : ''; });
   })();
 </script>
 </body>
