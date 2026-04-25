@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Favicon with proper sizing -->
+<link rel="icon" type="image/png" sizes="64x64" href="loogoo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="loogoo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="loogoo.png">
+<link rel="apple-touch-icon" href="loogoo.png">
+<link rel="shortcut icon" href="loogoo.png">
   <title>Our Programs | Mzurayza Ingwenya Foundation</title>
   <meta name="description" content="Explore MIF's programmes — Youth School Championship, Maphumulo Ikhono Showcase, skill development workshops and more. Upcoming events and photo gallery." />
   <style>
@@ -59,6 +65,12 @@
       font-weight: 700;
       border-radius: 999px;
       font-family: Georgia, serif;
+      overflow: hidden;
+    }
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .brand-text {
       line-height: 1.3;
@@ -496,7 +508,7 @@
   <div class="container">
     <div class="navbar-inner">
       <a href="#" data-page="index" class="navbar-brand">
-           <div class="brand-icon">
+       <div class="brand-icon">
           <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
         </div>
         <div class="brand-text">
@@ -506,7 +518,7 @@
       </a>
       <ul class="navbar-nav">
         <li><a href="index.html"   class="nav-link">Home</a></li>
-        <li><a href="aboutus.html"  class="nav-link">About Us</a></li>
+        <li><a href="aboutus.html"   class="nav-link">About Us</a></li>
         <li><a href="ourprograms.html"   class="nav-link active">Our Programs</a></li>
         <li><a href="team.html"   class="nav-link">Our Team</a></li>
         <li><a href="contactus.html"   class="nav-link nav-cta btn btn-primary">Get Involved</a></li>
@@ -518,7 +530,7 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html"   class="nav-link">Home</a>
-    <a href="aboutus.html"  class="nav-link">About Us</a>
+    <a href="aboutus.html"   class="nav-link">About Us</a>
     <a href="ourprograms.html"   class="nav-link active">Our Programs</a>
     <a href="team.html"   class="nav-link">Our Team</a>
     <a href="contactus.html"   class="nav-link nav-cta btn btn-primary">Get Involved</a>
@@ -566,7 +578,7 @@
     </div>
   </section>
 
-  <!-- UPCOMING EVENTS SECTION (publishing new/upcoming events) -->
+  <!-- UPCOMING EVENTS SECTION -->
   <section class="upcoming-section">
     <div class="container">
       <div class="reveal" style="text-align:center;">
@@ -574,13 +586,11 @@
         <h2 class="section-title">Upcoming & New Events</h2>
         <p class="section-lead" style="margin:0 auto;">New programmes and events are announced regularly. Be part of the movement.</p>
       </div>
-      <div class="events-grid" id="upcomingEventsContainer">
-        <!-- dynamic events will load here but also static fallback -->
-      </div>
+      <div class="events-grid" id="upcomingEventsContainer"></div>
     </div>
   </section>
 
-  <!-- GALLERY SECTION with filters -->
+  <!-- GALLERY SECTION with local .png images -->
   <section class="gallery-section">
     <div class="container">
       <div class="reveal" style="text-align:center;">
@@ -603,30 +613,29 @@
       <span class="eyebrow" style="display:block; text-align:center; color:#F5C542;">Support the work</span>
       <h2 class="section-title">Help us grow these programmes</h2>
       <p class="section-lead" style="margin:0 auto 2rem; color:#DBEBE4;">Sponsorship, partnerships and CSI investments make these programmes possible. Your support directly reaches rural youth who deserve bigger opportunities.</p>
-      <div class="cta-banner-btns"><a href="contactus.html" class="btn btn-primary">Partner With Us</a><a href="team.html"   class="btn btn-outline" style="border-color:white; color:white;">Meet Our Team</a></div>
+      <div class="cta-banner-btns"><a href="contactus.html"  class="btn btn-primary">Partner With Us</a><a href="team.html" class="btn btn-outline" style="border-color:white; color:white;">Meet Our Team</a></div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid"><div class="footer-brand"><div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;">    <div class="brand-icon">
+    <div class="footer-grid"><div class="footer-brand"><div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;"> <div class="brand-icon">
           <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
         </div><div class="brand-text"><span class="brand-name">Mzurayza Ingwenya Foundation</span><span class="brand-sub">Empowering Rural Youth</span></div></div><p>A registered Non-Profit Organisation empowering the youth of KwaMaphumulo through sport, arts, culture and education since 2019.</p></div>
-      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"  >Home</a></li><li><a href="aboutus.html"  >About Us</a></li><li><a href="ourprograms.html" >Our Programs</a></li><li><a href="team.html" >Our Team</a></li><li><a href="contactus.html" data-page="contactus">Contact Us</a></li></ul></div>
-      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909</a></li><li><a href="tel:0795422867">079 542 2867</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"  >Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="ourprograms.html"  >Our Programs</a></li><li><a href="team.html"  >Our Team</a></li><li><a href="contactus.html"  >Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909 - Mzuvele</a></li><li><a href="tel:0795422867">079 542 2867 - Siyabonga</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal, South Africa</span><span>Empowering the next generation</span></div>
+    <div class="footer-bottom"><span>© 2025 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal, South Africa</span><span>Empowering the next generation</span></div>
   </div>
 </footer>
 
-<!-- Modal for lightbox -->
 <div id="imageModal" class="modal"><img id="modalImage" src="" alt="Gallery"></div>
 
 <script>
   (function() {
     // Navigation handler
-    const pageMap = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Contact Us' };
+    const pageMap = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Get Involved' };
     function setActive(pageId) {
       document.querySelectorAll('.nav-link[data-page]').forEach(link => {
         if(link.getAttribute('data-page') === pageId) link.classList.add('active');
@@ -649,7 +658,7 @@
       mobileMenu.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
     }
 
-    // Upcoming events data (publish new events here)
+    // Upcoming events data
     const upcomingEvents = [
       { title: "2026 Youth School Championship – Group Stages", date: "May 2026", location: "Various circuits (Balcony Hills, Mati, Mvoti, Ntonjambili)", description: "Knockout group stages across all Maphumulo circuits. Winners proceed to finals.", status: "Upcoming" },
       { title: "2026 Youth School Championship – Grand Finals", date: "16 June 2026", location: "Sabuyaze Sport Grounds", description: "Final matches, celebrity guests, soccer scouts, prizes and entertainment.", status: "Register Interest" },
@@ -662,44 +671,50 @@
       `).join('');
     }
 
-    // Gallery data: mix of images + categorization
+    // GALLERY DATA - LOCAL .png IMAGES (replace with your actual image filenames)
     const galleryData = [
-      { id: 1, category: "youth", img: "https://picsum.photos/id/100/400/300", caption: "Youth School Championship 2024 - Soccer finals" },
-      { id: 2, category: "youth", img: "https://picsum.photos/id/101/400/300", caption: "Netball action at Youth School Tournament" },
-      { id: 3, category: "ikhono", img: "https://picsum.photos/id/102/400/300", caption: "Ikhono Showcase performer on stage" },
-      { id: 4, category: "ikhono", img: "https://picsum.photos/id/103/400/300", caption: "Best Fine Art winner - Ikhono Showcase 2024" },
-      { id: 5, category: "youth", img: "https://picsum.photos/id/104/400/300", caption: "Youth championship trophy ceremony" },
-      { id: 6, category: "ikhono", img: "https://picsum.photos/id/105/400/300", caption: "Workshop session - Artist branding" },
-      { id: 7, category: "youth", img: "https://picsum.photos/id/106/400/300", caption: "Young athletes celebrating victory" },
-      { id: 8, category: "ikhono", img: "https://picsum.photos/id/107/400/300", caption: "Maskandi performance at Ikhono Showcase" },
-      { id: 9, category: "youth", img: "https://picsum.photos/id/108/400/300", caption: "Opening ceremony Youth School Championship" },
-      { id: 10, category: "ikhono", img: "https://picsum.photos/id/169/400/300", caption: "Poetry slam - Ikhono Showcase 2024" },
-      { id: 11, category: "youth", img: "https://picsum.photos/id/112/400/300", caption: "Best goalkeeper award ceremony" },
-      { id: 12, category: "ikhono", img: "https://picsum.photos/id/114/400/300", caption: "Dance crew performance - Ikhono finals" }
+      { id: 1, category: "youth", img: "25 champions soccer.jpg", caption: "Youth School Tournament 2025 - Soccer Champions" },
+      { id: 2, category: "youth", img: "netbal 25.jpg", caption: "Youth School Tournament 2025 - Netball Champions" },
+      { id: 3, category: "ikhono", img: "ikhono.jpg", caption: "Ikhono Showcase Judges" },
+      { id: 4, category: "ikhono", img: "2024 winners ikhono.jpg", caption: "Competition Winners at Ikhono Showcase 2024" },
+      { id: 5, category: "youth", img: "netbal 25 pr.jpg", caption: "Youth Schools Tournament 2025- Primary Netball Champions" },
+      { id: 6, category: "ikhono", img: "qhawe n best c.jpg", caption: "Youth Schools Tournament 2025 - Best Soccer Coach" },
+      { id: 7, category: "youth", img: "youth schol 25 prizes.jpg", caption: "Youth Schools Tournament 2025 - Prizes" },
+        { id: 8, category: "ikhono", img: "ikhono awards.jpg", caption: "Best AFRO POP/ RNB - Ikhono Showcase 2024" },
+      { id: 9, category: "youth", img: "youthh.jpg", caption: "Creative individuals, Captains, Leaders of all perticipating schools" },
+      { id: 10, category: "ikhono", img: "ikhon 2nd.jpg", caption: "2nd place artist - Ikhono Showcase 2024" },
+      { id: 11, category: "youth", img: "pnp.jpg", caption: "Pick n Pay with young soccer stars drinking Aquelle - 2024" },
+      { id: 12, category: "ikhono", img: "artist p.jpg", caption: "Hot Line up - Ikhono Showcase 2024" },
+     { id: 13, category: "youth", img: "Youth.jpg", caption: "Youth School Tournament 2024 - Pick n Pay" }
     ];
+
     function renderGallery(filter = "all") {
       const filtered = filter === "all" ? galleryData : galleryData.filter(item => item.category === filter);
       const grid = document.getElementById('galleryGrid');
       if(grid) {
-        grid.innerHTML = filtered.map(item => `
-          <div class="gallery-item" data-category="${item.category}">
+        grid.innerHTML = filtered.map((item, idx) => `
+          <div class="gallery-item" data-category="${item.category}" data-img-index="${idx}">
             <div class="gallery-img" style="background-image: url('${item.img}');"></div>
             <div class="gallery-caption">${item.caption}</div>
           </div>
         `).join('');
-        // attach lightbox
-        document.querySelectorAll('.gallery-item').forEach((el, idx) => {
+        // attach lightbox click events
+        document.querySelectorAll('.gallery-item').forEach((el, i) => {
           el.addEventListener('click', () => {
-            const imgUrl = filtered[idx].img;
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'flex';
-            modalImg.src = imgUrl;
+            const originalIndex = filtered[i]?.id ? filtered.findIndex(x => x.id === filtered[i].id) : i;
+            const imgUrl = filtered[i]?.img;
+            if(imgUrl) {
+              const modal = document.getElementById('imageModal');
+              const modalImg = document.getElementById('modalImage');
+              modal.style.display = 'flex';
+              modalImg.src = imgUrl;
+            }
           });
         });
       }
     }
     renderGallery('all');
+
     // filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -709,6 +724,7 @@
         renderGallery(filterVal);
       });
     });
+
     // modal close
     const modal = document.getElementById('imageModal');
     modal.addEventListener('click', () => { modal.style.display = 'none'; });

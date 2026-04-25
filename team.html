@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Favicon with proper sizing -->
+<link rel="icon" type="image/png" sizes="64x64" href="loogoo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="loogoo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="loogoo.png">
+<link rel="apple-touch-icon" href="loogoo.png">
+<link rel="shortcut icon" href="loogoo.png">
   <title>Our Team | Mzurayza Ingwenya Foundation</title>
   <meta name="description" content="Meet the dedicated team behind Mzurayza Ingwenya Foundation — young graduates and professionals from KwaMaphumulo driving real community change." />
   <style>
@@ -59,6 +65,7 @@
       font-weight: 700;
       border-radius: 999px;
       font-family: Georgia, serif;
+      overflow: hidden;
     }
     .brand-text {
       line-height: 1.3;
@@ -260,6 +267,13 @@
       box-shadow: 0 12px 18px rgba(0,0,0,0.1);
       flex-shrink: 0;
       transition: transform 0.2s;
+      overflow: hidden;
+      background: linear-gradient(145deg, #D48A2B, #F5C542);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .team-card:hover .team-avatar {
       transform: scale(1.02);
@@ -281,7 +295,7 @@
       line-height: 1.6;
       max-width: 700px;
     }
-    /* culture section innovative */
+    /* culture section */
     .culture-section {
       background: #F6FBF8;
     }
@@ -390,11 +404,11 @@
 <body>
 
 <!-- ===== SHARED NAVIGATION ===== -->
-<nav class="navbar" id="main-nav">
+ <nav class="navbar" id="main-nav">
   <div class="container">
     <div class="navbar-inner">
       <a href="#" class="navbar-brand" data-nav-link="index">
-            <div class="brand-icon">
+                <div class="brand-icon">
           <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
         </div>
         <div class="brand-text">
@@ -403,7 +417,7 @@
         </div>
       </a>
       <ul class="navbar-nav">
-        <li><a href="index.html"  class="nav-link">Home</a></li>
+        <li><a href="index.html"   class="nav-link">Home</a></li>
         <li><a href="aboutus.html" class="nav-link">About Us</a></li>
         <li><a href="ourprograms.html"   class="nav-link">Our Programs</a></li>
         <li><a href="team.html"   class="nav-link active">Our Team</a></li>
@@ -415,14 +429,13 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#" data-page="index" class="nav-link">Home</a>
+    <a href="index.html" data-page="index" class="nav-link">Home</a>
     <a href="aboutus.html"  class="nav-link">About Us</a>
     <a href="ourprograms.html"  class="nav-link">Our Programs</a>
-    <a href="team.html" class="nav-link">Our Team</a>
+    <a href="team.html" class="nav-link active">Our Team</a>
     <a href="contactus.html" class="nav-link nav-cta btn btn-primary">Get Involved</a>
   </div>
 </nav>
-
 <main>
   <!-- CREATIVE PAGE HERO -->
   <section class="page-hero">
@@ -433,11 +446,11 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION (expressive) -->
+  <!-- TEAM SECTION with actual PNG images -->
   <section class="team-section">
     <div class="container">
       <div class="reveal" style="max-width:600px;">
-        <span class="eyebrow">Our leadership</span>
+        <span class="ebrow">Our leadership</span>
         <h2 class="section-title">Rooted in Maphumulo, rising together</h2>
         <p class="section-lead">
           Every member of the MIF executive team was born in KwaMaphumulo. This isn't just a job for them — it's a mission forged in lived experience, love for arts and sport, and unwavering belief in rural youth.
@@ -445,53 +458,67 @@
       </div>
 
       <div class="team-grid-full" style="margin-top:2.5rem;">
-        <!-- founder with creative highlight -->
+        <!-- Founder with image -->
         <div class="team-card founder-card reveal">
-          <div class="team-avatar" style="background: linear-gradient(145deg, #D48A2B, #F5C542);">M.M</div>
+          <div class="team-avatar">
+            <img src="mzuh.jpg" alt="Mzuvele Mkhize - Founder">
+          </div>
           <div>
             <h3>Mzuvele Mkhize</h3>
-            <div class="role">✦ Founder & Chairperson ✦ “Mzurayza”</div>
+            <div class="role">Chairperson</div>
             <p class="bio">
               Hailing from KwaMaphumulo Ward 11, Mzuvele holds a Bachelor's Degree in Management, Media and Cultural Studies (UKZN). As a musician, entrepreneur and cultural architect, he founded Mzutainment, Ingwenya Clothing, and Mzurayza Ingwenya Foundation (NPO). He drives the organisation's vision — turning rural creative energy into sustainable impact. His philosophy: <strong>"We don't wait for change — we create the stage."</strong>
             </p>
           </div>
         </div>
-
+<!-- Mthetheleli Msweli with image -->
+        <div class="team-card reveal reveal-delay-4">
+          <div class="team-avatar">
+            <img src="mthetheleli.jpg" alt="Mthetheleli Msweli - Logistics">
+          </div>
+          <div>
+            <h3>Mthetheleli Msweli</h3>
+            <div class="role">Deputy Chairperson</div>
+            <p class="bio">A veteran of MIF's major events — Youth School Tournament, Maqadini Tournament and Maphumulo Festival — Mthetheleli turns big visions into on-the-ground realities. His network and calm leadership make large-scale rural events possible.</p>
+          </div>
+        </div>
+        <!-- Siyabonga Majozi with image -->
         <div class="team-card reveal reveal-delay-1">
-          <div class="team-avatar" style="background: linear-gradient(145deg, #0F6E56, #1D9E75);">S.M</div>
+          <div class="team-avatar">
+            <img src="Siyabonga.jpg" alt="Siyabonga Majozi - Secretary">
+          </div>
           <div>
             <h3>Siyabonga Majozi</h3>
-            <div class="role">Secretary & IT Architect</div>
-            <p class="bio">Siyabonga grew up in Maphumulo and has been part of MIF's core since 2022. Currently completing his IT degree at DUT, he manages digital promotion, livestreams, event systems and admin. His insight bridges rural traditions with new technology — making sure MIF stays future-ready.</p>
+            <div class="role">Secretary  </div>
+            <p class="bio">Siyabonga grew up in Maphumulo and has been part of MIF's core since 2022. Currently completing his IT Honours at DUT, he manages digital promotion, livestreams, event systems and admin. His insight bridges rural traditions with new technology — making sure MIF stays future-ready.</p>
           </div>
         </div>
 
+        <!-- Philile Bhengu with image -->
         <div class="team-card reveal reveal-delay-2">
-          <div class="team-avatar" style="background: linear-gradient(145deg, #AA6F20, #E2A23B);">P.B</div>
+          <div class="team-avatar">
+            <img src="philly.jpg" alt="Philile Bhengu - Operations">
+          </div>
           <div>
             <h3>Philile Bhengu</h3>
-            <div class="role">Executive Director of Operations</div>
-            <p class="bio">Philile is the engine behind MIF's flawless event delivery. From the Youth School Championship to Ikhono Showcase, her meticulous coordination and community-first approach have elevated every programme. She embodies grace under pressure and deep empathy for rural youth.</p>
+            <div class="role">Deputy Secretary</div>
+            <p class="bio">Philile is the engine behind MIF's flawless event delivery, she's currently completing her Degree i...n at DUT. From the Youth School Championship to Maqadini Tournament, her meticulous coordination and community-first approach have elevated every programme. She embodies grace under pressure and deep empathy for rural youth.</p>
           </div>
         </div>
 
+        <!-- Qhawekazi Mtshali with image -->
         <div class="team-card reveal reveal-delay-3">
-          <div class="team-avatar" style="background: linear-gradient(145deg, #5E4BBC, #8B7BE8);">Q.M</div>
+          <div class="team-avatar">
+            <img src="qhawekazi.png" alt="Qhawekazi Mtshali - Community Engagement">
+          </div>
           <div>
             <h3>Qhawekazi Mtshali</h3>
-            <div class="role">Community Engagement Lead</div>
+            <div class="role">Treasurer</div>
             <p class="bio">Qhawekazi brings vibrant energy and authentic connection to every MIF initiative. Her experience spans from grassroots mobilisation to high-level programme planning. She ensures that youth, women and people with disability are not just included but centered in all our work.</p>
           </div>
         </div>
 
-        <div class="team-card reveal reveal-delay-4">
-          <div class="team-avatar" style="background: linear-gradient(145deg, #2F6D92, #4F9FD9);">M.M</div>
-          <div>
-            <h3>Mthetheleli Msweli</h3>
-            <div class="role">Logistics & Partnerships Manager</div>
-            <p class="bio">A veteran of MIF's major events — Youth School Tournament, Maqadini Tournament and Maphumulo Festival — Mthetheleli turns big visions into on-the-ground realities. His network and calm leadership make large-scale rural events possible.</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -524,8 +551,8 @@
         Be a partner, sponsor or supporter. Let's build the most vibrant rural youth ecosystem in KZN — together.
       </p>
       <div class="cta-banner-btns">
-        <a href="#" data-page="contactus" class="btn btn-primary">Connect With Our Team</a>
-        <a href="#" data-page="ourprograms" class="btn btn-outline" style="border-color:white; color:white;">Explore Our Impact</a>
+        <a href="team.html" class="btn btn-primary">Connect With Our Team</a>
+        <a href="ourprograms.html" class="btn btn-outline" style="border-color:white; color:white;">Explore Our Impact</a>
       </div>
     </div>
   </section>
@@ -538,10 +565,10 @@
       <div class="footer-brand"><div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;">     <div class="brand-icon">
           <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
         </div><div class="brand-text"><span class="brand-name">Mzurayza Ingwenya Foundation</span><span class="brand-sub">Empowering Rural Youth</span></div></div><p>A registered Non-Profit Organisation empowering the youth of KwaMaphumulo through sport, arts, culture and education since 2019.</p></div>
-      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="#" data-page="index">Home</a></li><li><a href="#" data-page="aboutus">About Us</a></li><li><a href="#" data-page="ourprograms">Our Programs</a></li><li><a href="#" data-page="team">Our Team</a></li><li><a href="#" data-page="contactus">Contact Us</a></li></ul></div>
-      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909</a></li><li><a href="tel:0795422867">079 542 2867</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="ourprograms.html">Our Programs</a></li><li><a href="team.html" >Our Team</a></li><li><a href="contactus.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909 - Mzuvele</a></li><li><a href="tel:0795422867">079 542 2867 - Siyabonga</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal</span><span>Inspiring rural youth, one event at a time.</span></div>
+    <div class="footer-bottom"><span>© 2025 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal</span><span>Inspiring rural youth, one event at a time.</span></div>
   </div>
 </footer>
 
