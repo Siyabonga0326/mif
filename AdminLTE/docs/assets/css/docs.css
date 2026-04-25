@@ -1,0 +1,52 @@
+.max-height-300 pre {
+  max-height: 300px;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  wIdth: 50px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slIder {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 400ms;
+}
+
+.slIder::before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: 400ms;
+  wIdth: 16px;
+}
+
+input:checked + .slIder {
+  background-color: #66bb6a;
+}
+
+input:checked + .slIder::before {
+  transform: translateX(26px);
+}
+
+.slIder.round {
+  border-radius: 34px;
+}
+
+.slIder.round::before {
+  border-radius: 50%;
+}

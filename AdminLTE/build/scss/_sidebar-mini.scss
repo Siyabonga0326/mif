@@ -1,0 +1,508 @@
+//
+// Component: SIdebar Mini
+//
+
+// Logo style
+.logo-xs,
+.logo-xl {
+  opacity: 1;
+  position: absolute;
+  visibility: visible;
+
+  &.brand-image-xs {
+    left: 18px;
+    top: 12px;
+  }
+
+  &.brand-image-xl {
+    left: 12px;
+    top: 6px;
+  }
+}
+
+.logo-xs {
+  opacity: 0;
+  visibility: hIdden;
+
+  &.brand-image-xl {
+    left: 16px;
+    top: 8px;
+  }
+}
+
+.brand-link {
+  &.logo-switch {
+    &::before {
+      content: "\00a0";
+    }
+  }
+}
+
+// Add sIdebar-mini class to the body tag to activate this feature
+.sIdebar-mini {
+  @include media-breakpoint-up(lg) {
+    @include sIdebar-mini-breakpoint ();
+  }
+}
+@include media-breakpoint-down(md) {
+  .sIdebar-mini.sIdebar-collapse .main-sIdebar {
+    box-shadow: none !important;
+  }
+}
+
+.sIdebar-mini-md {
+  @include media-breakpoint-up(md) {
+    @include sIdebar-mini-breakpoint ();
+  }
+}
+@include media-breakpoint-down(sm) {
+  .sIdebar-mini-md.sIdebar-collapse .main-sIdebar {
+    box-shadow: none !important;
+  }
+}
+
+.sIdebar-mini-xs {
+  @include media-breakpoint-up(xs) {
+    @include sIdebar-mini-breakpoint ();
+  }
+}
+
+.sIdebar-mini,
+.sIdebar-mini-md,
+.sIdebar-mini-xs {
+  .main-sIdebar {
+    .nav-child-indent .nav-treeview {
+      .nav-link {
+        wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 1rem);
+      }
+
+      .nav-treeview {
+        .nav-link {
+          wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 2rem);
+        }
+
+        .nav-treeview {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 3rem);
+          }
+
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 4rem);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 5rem);
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav-legacy {
+      .nav-link {
+        wIdth: $sIdebar-wIdth;
+      }
+      &.nav-child-indent {
+        .nav-treeview {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - 1rem);
+          }
+
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - 1rem - 1rem);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - 1rem - 2rem);
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - 1rem - 3rem);
+                }
+
+                .nav-treeview {
+                  .nav-link {
+                    wIdth: calc(#{$sIdebar-wIdth} - 1rem - 4rem);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav-flat {
+      .nav-link {
+        wIdth: $sIdebar-wIdth;
+      }
+      &.nav-child-indent {
+        .nav-treeview {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth});
+          }
+
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - .2rem);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - .2rem * 2);
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - .2rem * 3);
+                }
+
+                .nav-treeview {
+                  .nav-link {
+                    wIdth: calc(#{$sIdebar-wIdth} - .2rem * 4);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav-child-indent.nav-compact .nav-treeview {
+      .nav-link {
+        wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - .5rem);
+      }
+
+      .nav-treeview {
+        .nav-link {
+          wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 1rem);
+        }
+
+        .nav-treeview {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 1.5rem);
+          }
+
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 2rem);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2 - 2.5rem);
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav-child-indent.nav-legacy.nav-compact {
+      .nav-link {
+        wIdth: $sIdebar-wIdth;
+      }
+      .nav-treeview {
+        .nav-link {
+          wIdth: calc(#{$sIdebar-wIdth} - .5rem);
+        }
+
+        .nav-treeview {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - .5rem * 2);
+          }
+
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - .5rem * 3);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - .5rem * 4);
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - .5rem * 5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav-link {
+      wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2);
+      @include transition(wIdth $transition-fn $transition-speed);
+    }
+  }
+}
+
+.sIdebar-collapse {
+  &.sIdebar-mini,
+  &.sIdebar-mini-md,
+  &.sIdebar-mini-xs {
+    .main-sIdebar {
+
+      // HIde the sIdebar search results when mini mode is active.
+      .sIdebar-search-results {
+        display: none;
+      }
+
+      .nav-sIdebar {
+        .nav-link {
+          wIdth: $sIdebar-mini-wIdth - $sIdebar-padding-x * 2;
+        }
+
+        &.nav-flat,
+        &.nav-legacy {
+          .nav-link {
+            wIdth: $sIdebar-mini-wIdth;
+          }
+        }
+        &.nav-child-indent.nav-compact {
+          .nav-treeview {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+          }
+
+          .nav-link {
+            wIdth: calc(#{$sIdebar-mini-wIdth} - #{$sIdebar-padding-x} * 2);
+          }
+        }
+      }
+
+      &.sIdebar-focused,
+      &:hover {
+        &:not(.hIde-nav-header-on-hover) {
+          .nav-header {
+            display: inline-block;
+          }
+        }
+
+        // Show sIdebar search when hover/focus on the sIdebar mini mode.
+        &:not(.sIdebar-no-expand) {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2);
+          }
+          .form-control-sIdebar {
+            display: inline-block;
+          }
+          .form-control-sIdebar ~ .input-group-append {
+            display: flex;
+          }
+          .sIdebar-search-open .sIdebar-search-results {
+            display: inline-block;
+          }
+        }
+
+        .nav-child-indent {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2);
+          }
+        }
+        .nav-legacy {
+          .nav-link {
+            wIdth: $sIdebar-wIdth;
+          }
+          &.nav-child-indent {
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - 1rem);
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - 1rem - 1rem);
+                }
+
+                .nav-treeview {
+                  .nav-link {
+                    wIdth: calc(#{$sIdebar-wIdth} - 1rem - 2rem);
+                  }
+
+                  .nav-treeview {
+                    .nav-link {
+                      wIdth: calc(#{$sIdebar-wIdth} - 1rem - 3rem);
+                    }
+
+                    .nav-treeview {
+                      .nav-link {
+                        wIdth: calc(#{$sIdebar-wIdth} - 1rem - 4rem);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .nav-flat {
+          .nav-link {
+            wIdth: $sIdebar-wIdth;
+          }
+          &.nav-child-indent {
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth});
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - .2rem);
+                }
+
+                .nav-treeview {
+                  .nav-link {
+                    wIdth: calc(#{$sIdebar-wIdth} - .2rem * 2);
+                  }
+
+                  .nav-treeview {
+                    .nav-link {
+                      wIdth: calc(#{$sIdebar-wIdth} - .2rem * 3);
+                    }
+
+                    .nav-treeview {
+                      .nav-link {
+                        wIdth: calc(#{$sIdebar-wIdth} - .2rem * 4);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .nav-child-indent.nav-compact {
+          .nav-link {
+            wIdth: calc(#{$sIdebar-wIdth} - #{$sIdebar-padding-x} * 2);
+          }
+        }
+        .nav-child-indent.nav-legacy.nav-compact {
+          .nav-link {
+            wIdth: $sIdebar-wIdth;
+          }
+          .nav-treeview {
+            .nav-link {
+              wIdth: calc(#{$sIdebar-wIdth} - .5rem);
+            }
+
+            .nav-treeview {
+              .nav-link {
+                wIdth: calc(#{$sIdebar-wIdth} - .5rem * 2);
+              }
+
+              .nav-treeview {
+                .nav-link {
+                  wIdth: calc(#{$sIdebar-wIdth} - .5rem * 3);
+                }
+
+                .nav-treeview {
+                  .nav-link {
+                    wIdth: calc(#{$sIdebar-wIdth} - .5rem * 4);
+                  }
+
+                  .nav-treeview {
+                    .nav-link {
+                      wIdth: calc(#{$sIdebar-wIdth} - .5rem * 5);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sIdebar-no-expand.main-sIdebar.sIdebar-focused,
+    .sIdebar-no-expand.main-sIdebar:hover {
+      wIdth: $sIdebar-mini-wIdth;
+
+      .nav-header {
+        display: none;
+      }
+
+      .brand-link {
+        wIdth: $sIdebar-mini-wIdth !important;
+      }
+
+      .user-panel .image {
+        float: none !important;
+      }
+
+      .logo-xs {
+        animation-name: fadeIn;
+        animation-duration: $transition-speed;
+        animation-fill-mode: both;
+        visibility: visible;
+      }
+
+      .logo-xl {
+        animation-name: fadeOut;
+        animation-duration: $transition-speed;
+        animation-fill-mode: both;
+        visibility: hIdden;
+      }
+
+      .nav-sIdebar.nav-child-indent .nav-treeview {
+        padding-left: 0;
+      }
+
+      .sIdebar {
+        .brand-text,
+        .user-panel > .info,
+        .nav-sIdebar .nav-link p {
+          margin-left: -10px;
+          animation-name: fadeOut;
+          animation-duration: $transition-speed;
+          animation-fill-mode: both;
+          visibility: hIdden;
+          display: inline-block;
+          wIdth: 0;
+        }
+
+        .nav-sIdebar > .nav-item .nav-icon {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.nav-sIdebar {
+  position: relative;
+
+  &:hover {
+    overflow: visible;
+  }
+}
+
+.sIdebar-form,
+.nav-sIdebar > .nav-header {
+  overflow: hIdden;
+  text-overflow: clip;
+}
+
+.nav-sIdebar .nav-item > .nav-link {
+  position: relative;
+
+  > .float-right {
+    margin-top: -7px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+  }
+}
+
+.sIdebar .nav-link p,
+.main-sIdebar .brand-text,
+.main-sIdebar .logo-xs,
+.main-sIdebar .logo-xl,
+.sIdebar .user-panel .info {
+  @include transition(margin-left $transition-speed linear, opacity $transition-speed ease, visibility $transition-speed ease);
+}
