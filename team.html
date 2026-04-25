@@ -2,161 +2,601 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Our Team | Mzurayza Ingwenya Foundation</title>
   <meta name="description" content="Meet the dedicated team behind Mzurayza Ingwenya Foundation — young graduates and professionals from KwaMaphumulo driving real community change." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background-color: #FEFCF5;
+      color: #1A2A1F;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* navbar */
+    .navbar {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.2s;
+    }
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+    .brand-icon {
+      background: #1D9E75;
+      color: white;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 999px;
+      font-family: Georgia, serif;
+    }
+    .brand-text {
+      line-height: 1.3;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1A2A1F;
+      display: block;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: #4A5B4A;
+      letter-spacing: 0.3px;
+    }
+    .navbar-nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2B3B2E;
+      transition: 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #1D9E75;
+    }
+    .nav-cta.btn-primary {
+      background: #1D9E75;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+    }
+    .nav-cta.btn-primary:hover {
+      background: #0F7A59;
+    }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2.5px;
+      background: #1A2A1F;
+      transition: 0.2s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: white;
+      padding: 1rem 2rem 2rem;
+      gap: 1rem;
+      border-top: 1px solid #e9ecec;
+    }
+    @media (max-width: 820px) {
+      .navbar-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu.open { display: flex; }
+    }
+    /* buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #1D9E75;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0F7A59;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1.5px solid #1D9E75;
+      color: #1D9E75;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: #1D9E7510;
+    }
+    /* page hero creative */
+    .page-hero {
+      background: radial-gradient(circle at 10% 30%, #0F342C, #0A2B23);
+      color: white;
+      padding: 4.5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "✦ ✦ ✦";
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 4rem;
+      opacity: 0.08;
+      font-family: monospace;
+      pointer-events: none;
+    }
+    .page-hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      background: rgba(255,255,255,0.12);
+      display: inline-block;
+      padding: 0.3rem 1.5rem;
+      border-radius: 60px;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(2px);
+    }
+    .page-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, #F5C542, #FFE8A3);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+    .page-hero p {
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    /* sections */
+    section {
+      padding: 5rem 0;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1D9E75;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0.5rem 0 1rem;
+      color: #0B2F26;
+    }
+    .section-lead {
+      font-size: 1.1rem;
+      color: #2E4739;
+    }
+    /* team cards creative */
+    .team-grid-full {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .team-card {
+      background: white;
+      border-radius: 36px;
+      padding: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(29,158,117,0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .founder-card {
+      background: linear-gradient(105deg, white, #F9FFF9);
+      border-left: 6px solid #F5C542;
+    }
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 18px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .team-card:hover .team-avatar {
+      transform: scale(1.02);
+    }
+    .team-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #0F2F2A;
+    }
+    .role {
+      font-weight: 600;
+      color: #1D9E75;
+      margin-bottom: 1rem;
+      letter-spacing: -0.2px;
+      font-size: 0.95rem;
+    }
+    .bio {
+      color: #2C4236;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+    /* culture section innovative */
+    .culture-section {
+      background: #F6FBF8;
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .culture-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      border: 1px solid #E2EBE4;
+    }
+    .culture-card:hover {
+      transform: translateY(-6px);
+      border-color: #1D9E7540;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+    }
+    .culture-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: #1D9E75;
+      stroke-width: 1.6;
+      fill: none;
+      margin-bottom: 1.2rem;
+    }
+    .culture-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .culture-card p {
+      color: #4A6A5A;
+      font-size: 0.95rem;
+    }
+    /* cta banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #1A2F28, #0F241E);
+      color: white;
+      text-align: center;
+    }
+    .cta-banner .section-title {
+      color: white;
+    }
+    .cta-banner-btns {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    /* footer */
+    .site-footer {
+      background: #0E241E;
+      color: #C7DCD2;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col h5 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li, .footer-links a {
+      color: #B7CFC2;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .footer-bottom {
+      border-top: 1px solid #2F4D42;
+      padding-top: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 720px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .team-card { flex-direction: column; align-items: center; text-align: center; }
+      .bio { text-align: center; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 3rem 0; }
+    }
+  </style>
 </head>
 <body>
 
-  <div id="nav-placeholder"></div>
+<!-- ===== SHARED NAVIGATION ===== -->
+<nav class="navbar" id="main-nav">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-brand" data-nav-link="index">
+        <div class="brand-icon">MIF</div>
+        <div class="brand-text">
+          <span class="brand-name">Mzurayza Ingwenya Foundation</span>
+          <span class="brand-sub">Empowering Rural Youth · Est. 2019</span>
+        </div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html"  class="nav-link">Home</a></li>
+        <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+        <li><a href="ourprograms.html"   class="nav-link">Our Programs</a></li>
+        <li><a href="team.html"   class="nav-link active">Our Team</a></li>
+        <li><a href="#" class="nav-link nav-cta btn btn-primary">Get Involved</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" data-page="index" class="nav-link">Home</a>
+    <a href="aboutus.html"  class="nav-link">About Us</a>
+    <a href="ourprograms.html"  class="nav-link">Our Programs</a>
+    <a href="team.html" class="nav-link">Our Team</a>
+    <a href="#" class="nav-link nav-cta btn btn-primary">Get Involved</a>
+  </div>
+</nav>
 
-  <!-- ════ PAGE HERO ════ -->
+<main>
+  <!-- CREATIVE PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <span class="page-hero-eyebrow">The People</span>
-      <h1>Meet Our <em>Team</em></h1>
-      <p>Young, passionate graduates and professionals from KwaMaphumulo — people who understand this community because they grew up in it.</p>
+      <span class="page-hero-eyebrow">✦ The Heartbeat ✦</span>
+      <h1>Meet Our <em>Groundbreakers</em></h1>
+      <p>Young, passionate graduates and creators from KwaMaphumulo — people who understand this community because they grew up in it. This is homegrown leadership.</p>
     </div>
   </section>
 
-  <!-- ════ TEAM ════ -->
+  <!-- TEAM SECTION (expressive) -->
   <section class="team-section">
     <div class="container">
       <div class="reveal" style="max-width:600px;">
         <span class="eyebrow">Our leadership</span>
-        <h2 class="section-title">Driven by community, led by youth</h2>
+        <h2 class="section-title">Rooted in Maphumulo, rising together</h2>
         <p class="section-lead">
-          Every member of the MIF executive team was born in KwaMaphumulo. This isn't just a job for them — it's a mission rooted in personal experience, love for arts, sport and a deep desire to see their community thrive.
+          Every member of the MIF executive team was born in KwaMaphumulo. This isn't just a job for them — it's a mission forged in lived experience, love for arts and sport, and unwavering belief in rural youth.
         </p>
       </div>
 
       <div class="team-grid-full" style="margin-top:2.5rem;">
-
-        <!-- Founder -->
+        <!-- founder with creative highlight -->
         <div class="team-card founder-card reveal">
-          <div class="team-avatar" style="background: linear-gradient(135deg, #085041, #1D9E75);">MM</div>
+          <div class="team-avatar" style="background: linear-gradient(145deg, #D48A2B, #F5C542);">M.M</div>
           <div>
             <h3>Mzuvele Mkhize</h3>
-            <div class="role">Chairperson &amp; Founder</div>
+            <div class="role">✦ Founder & Chairperson ✦ “Mzurayza”</div>
             <p class="bio">
-              Known in the arts and culture world as <strong>Mzurayza</strong>, Mzuvele Mkhize was born at KwaMaphumulo Ward 11. He holds a Bachelor's Degree in Management, Media and Cultural Studies from the University of KwaZulu-Natal. A passionate musician and entrepreneur, he founded Mzutainment, Ingwenya Clothing and the Mzurayza Ingwenya Foundation. Mzuvele oversees all MIF programmes and drives the organisation's vision to create lasting creative and economic impact in rural KwaZulu-Natal.
+              Hailing from KwaMaphumulo Ward 11, Mzuvele holds a Bachelor's Degree in Management, Media and Cultural Studies (UKZN). As a musician, entrepreneur and cultural architect, he founded Mzutainment, Ingwenya Clothing, and Mzurayza Ingwenya Foundation (NPO). He drives the organisation's vision — turning rural creative energy into sustainable impact. His philosophy: <strong>"We don't wait for change — we create the stage."</strong>
             </p>
           </div>
         </div>
 
-        <!-- Team members -->
         <div class="team-card reveal reveal-delay-1">
-          <div class="team-avatar" style="background: linear-gradient(135deg, #0F6E56, #1D9E75);">SM</div>
-          <h3>Siyabonga Majozi</h3>
-          <div class="role">Secretary &amp; IT Lead</div>
-          <p class="bio">
-            Siyabonga grew up in Maphumulo and has been part of MIF's management team since 2022. A young IT specialist currently completing his studies at the Durban University of Technology, he manages all digital promotion, event administration and technology for MIF's programmes — including the Maphumulo Festival, Youth School Tournament and Maqadini Soccer Tournament.
-          </p>
+          <div class="team-avatar" style="background: linear-gradient(145deg, #0F6E56, #1D9E75);">S.M</div>
+          <div>
+            <h3>Siyabonga Majozi</h3>
+            <div class="role">Secretary & IT Architect</div>
+            <p class="bio">Siyabonga grew up in Maphumulo and has been part of MIF's core since 2022. Currently completing his IT degree at DUT, he manages digital promotion, livestreams, event systems and admin. His insight bridges rural traditions with new technology — making sure MIF stays future-ready.</p>
+          </div>
         </div>
 
         <div class="team-card reveal reveal-delay-2">
-          <div class="team-avatar" style="background: linear-gradient(135deg, #854F0B, #BA7517);">PB</div>
-          <h3>Philile Bhengu</h3>
-          <div class="role">Executive Management</div>
-          <p class="bio">
-            Philile brings experience and dedication to MIF's event management. She has played a vital role in the success of multiple MIF events and continues to be a key figure in ensuring every programme runs smoothly and achieves its intended community impact.
-          </p>
+          <div class="team-avatar" style="background: linear-gradient(145deg, #AA6F20, #E2A23B);">P.B</div>
+          <div>
+            <h3>Philile Bhengu</h3>
+            <div class="role">Executive Director of Operations</div>
+            <p class="bio">Philile is the engine behind MIF's flawless event delivery. From the Youth School Championship to Ikhono Showcase, her meticulous coordination and community-first approach have elevated every programme. She embodies grace under pressure and deep empathy for rural youth.</p>
+          </div>
         </div>
 
         <div class="team-card reveal reveal-delay-3">
-          <div class="team-avatar" style="background: linear-gradient(135deg, #3C3489, #7F77DD);">QM</div>
-          <h3>Qhawekazi Mtshali</h3>
-          <div class="role">Executive Management</div>
-          <p class="bio">
-            Qhawekazi is one of two key young women in MIF's leadership. Her experience from previous events and her commitment to the organisation's mission make her an invaluable part of the team. She works across programme planning, logistics and community engagement.
-          </p>
+          <div class="team-avatar" style="background: linear-gradient(145deg, #5E4BBC, #8B7BE8);">Q.M</div>
+          <div>
+            <h3>Qhawekazi Mtshali</h3>
+            <div class="role">Community Engagement Lead</div>
+            <p class="bio">Qhawekazi brings vibrant energy and authentic connection to every MIF initiative. Her experience spans from grassroots mobilisation to high-level programme planning. She ensures that youth, women and people with disability are not just included but centered in all our work.</p>
+          </div>
         </div>
 
         <div class="team-card reveal reveal-delay-4">
-          <div class="team-avatar" style="background: linear-gradient(135deg, #185FA5, #378ADD);">MM</div>
-          <h3>Mthetheleli Msweli</h3>
-          <div class="role">Executive Management</div>
-          <p class="bio">
-            Mthetheleli has been part of major MIF events including the Youth School Tournament, Maphumulo Festival and Maqadini Tournament. His experience and strong working relationship with the rest of the team make him a cornerstone of MIF's operational capacity.
-          </p>
+          <div class="team-avatar" style="background: linear-gradient(145deg, #2F6D92, #4F9FD9);">M.M</div>
+          <div>
+            <h3>Mthetheleli Msweli</h3>
+            <div class="role">Logistics & Partnerships Manager</div>
+            <p class="bio">A veteran of MIF's major events — Youth School Tournament, Maqadini Tournament and Maphumulo Festival — Mthetheleli turns big visions into on-the-ground realities. His network and calm leadership make large-scale rural events possible.</p>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ════ CULTURE ════ -->
+  <!-- CREATIVE CULTURE SECTION (dynamic) -->
   <section class="culture-section">
     <div class="container">
-      <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto 0.5rem;">
-        <span class="eyebrow">Our culture</span>
-        <h2 class="section-title">How we work</h2>
+      <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto;">
+        <span class="eyebrow">Our ethos</span>
+        <h2 class="section-title">How we shape the future</h2>
+        <p class="section-lead" style="margin:0 auto;">We don't do reactive — we build proactive ecosystems of talent, pride and opportunity.</p>
       </div>
       <div class="culture-grid">
-        <div class="culture-card reveal reveal-delay-1">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4>Community first</h4>
-          <p>Every decision we make is rooted in what's best for the youth and community of KwaMaphumulo. We are from here — we know the needs because we've lived them.</p>
-        </div>
-        <div class="culture-card reveal reveal-delay-2">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          </div>
-          <h4>Youth-led excellence</h4>
-          <p>Our team is made up of graduates and students who have earned their roles through dedication, hard work and genuine passion for arts, sport and community development.</p>
-        </div>
-        <div class="culture-card reveal reveal-delay-3">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <h4>Proactive, not reactive</h4>
-          <p>We don't wait for problems to get worse. We create opportunities, platforms and safe spaces before youth become vulnerable — that's the MIF way.</p>
-        </div>
-        <div class="culture-card reveal reveal-delay-1">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h4>Measurable impact</h4>
-          <p>We track our progress — growing school enrolments, improving matric pass rates, and increasing participation are all direct outcomes of our programmes.</p>
-        </div>
-        <div class="culture-card reveal reveal-delay-2">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h4>Cultural pride</h4>
-          <p>We celebrate Zulu heritage, indigenous arts, and local identity. Our events are proud expressions of who we are — and who we can become.</p>
-        </div>
-        <div class="culture-card reveal reveal-delay-3">
-          <div class="culture-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-          </div>
-          <h4>Growing the team</h4>
-          <p>Through our Graduate/Students Voluntary Programme, we bring in new young talent each year — mentoring the next generation of community leaders.</p>
-        </div>
+        <div class="culture-card reveal reveal-delay-1"><div class="culture-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Born & Bred Community</h4><p>We don't parachute solutions — we live here. Every decision is shaped by the real needs of Maphumulo.</p></div>
+        <div class="culture-card reveal reveal-delay-2"><div class="culture-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div><h4>Creative Sovereignty</h4><p>We celebrate Zulu heritage, indigenous arts, and local identity — turning culture into career paths.</p></div>
+        <div class="culture-card reveal reveal-delay-3"><div class="culture-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><h4>Proactive, Not Reactive</h4><p>We create platforms before youth become vulnerable — fighting crime, GBV and substance abuse by offering purpose.</p></div>
+        <div class="culture-card reveal reveal-delay-1"><div class="culture-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Impact Obsessed</h4><p>Increased school enrolments, higher matric pass rates, and 19+ schools in our tournament — we measure what matters.</p></div>
+        <div class="culture-card reveal reveal-delay-2"><div class="culture-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h4>Heritage Amplified</h4><p>We don't just preserve culture — we remix it for the future. Indigenous arts, Maskandi, dance and drama all have a home here.</p></div>
+        <div class="culture-card reveal reveal-delay-3"><div class="culture-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><h4>Next-Gen Leadership</h4><p>Through our Graduate/Students Voluntary Programme, we mentor young leaders from Maphumulo — building a pipeline of changemakers.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ════ CTA ════ -->
+  <!-- CALL TO ACTION -->
   <section class="cta-banner section-pad">
     <div class="container reveal">
-      <span class="eyebrow" style="display:block; text-align:center;">Work with us</span>
-      <h2 class="section-title">Ready to support this team?</h2>
-      <p class="section-lead" style="margin:0 auto 2rem;">
-        Get in touch to discuss sponsorship, partnerships, volunteering or Corporate Social Investment opportunities.
+      <span class="eyebrow" style="display:block; text-align:center; color:#FFE5B4;">Collaborate with us</span>
+      <h2 class="section-title">Amplify this movement</h2>
+      <p class="section-lead" style="margin:0 auto 2rem; color:#DBEBE4;">
+        Be a partner, sponsor or supporter. Let's build the most vibrant rural youth ecosystem in KZN — together.
       </p>
       <div class="cta-banner-btns">
-        <a href="contactus.html"   class="btn btn-primary">Contact Us</a>
-        <a href="ourprograms.html" class="btn btn-outline">View Our Programs</a>
+        <a href="#" data-page="contactus" class="btn btn-primary">Connect With Our Team</a>
+        <a href="#" data-page="ourprograms" class="btn btn-outline" style="border-color:white; color:white;">Explore Our Impact</a>
       </div>
     </div>
   </section>
+</main>
 
-  <div id="footer-placeholder"></div>
-  <script src="assets/js/components.js"></script>
-  <script src="assets/js/main.js"></script>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;"><div class="brand-icon">MIF</div><div class="brand-text"><span class="brand-name">Mzurayza Ingwenya Foundation</span><span class="brand-sub">Empowering Rural Youth</span></div></div><p>A registered Non-Profit Organisation empowering the youth of KwaMaphumulo through sport, arts, culture and education since 2019.</p></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="#" data-page="index">Home</a></li><li><a href="#" data-page="aboutus">About Us</a></li><li><a href="#" data-page="ourprograms">Our Programs</a></li><li><a href="#" data-page="team">Our Team</a></li><li><a href="#" data-page="contactus">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909</a></li><li><a href="tel:0795422867">079 542 2867</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal</span><span>Inspiring rural youth, one event at a time.</span></div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // nav routing + active class
+    const pages = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Contact Us' };
+    function setActive(pageId) {
+      document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        if(link.getAttribute('data-page') === pageId) link.classList.add('active');
+        else link.classList.remove('active');
+      });
+    }
+    function navigateTo(pageId) {
+      window.location.hash = pageId;
+      setActive(pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('[data-page]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = anchor.getAttribute('data-page');
+        if(target && pages[target]) navigateTo(target);
+      });
+    });
+    const initHash = window.location.hash.slice(1) || 'team';
+    setActive(initHash);
+    
+    // mobile toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', (e) => {
+        if(!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        }
+      });
+      mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+    // reveal observer
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
+    // navbar shadow
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => { navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : ''; });
+  })();
+</script>
 </body>
 </html>

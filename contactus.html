@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Get Involved | Mzurayza Ingwenya Foundation</title>
+  <meta name="description" content="Partner with MIF — sponsor, volunteer or collaborate. Fill in your details and message to support rural youth development in KwaMaphumulo." />
+  <style>
+    /* ---------- GLOBAL STYLES (consistent with all pages) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background-color: #FEFCF5;
+      color: #1A2A1F;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* navbar */
+    .navbar {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.2s;
+    }
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+    .brand-icon {
+      background: #1D9E75;
+      color: white;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 999px;
+      font-family: Georgia, serif;
+    }
+    .brand-text {
+      line-height: 1.3;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1A2A1F;
+      display: block;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: #4A5B4A;
+      letter-spacing: 0.3px;
+    }
+    .navbar-nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2B3B2E;
+      transition: 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #1D9E75;
+    }
+    .nav-cta.btn-primary {
+      background: #1D9E75;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+    }
+    .nav-cta.btn-primary:hover {
+      background: #0F7A59;
+    }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2.5px;
+      background: #1A2A1F;
+      transition: 0.2s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: white;
+      padding: 1rem 2rem 2rem;
+      gap: 1rem;
+      border-top: 1px solid #e9ecec;
+    }
+    @media (max-width: 820px) {
+      .navbar-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu.open { display: flex; }
+    }
+    /* buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #1D9E75;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0F7A59;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1.5px solid #1D9E75;
+      color: #1D9E75;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: #1D9E7510;
+    }
+    /* page hero */
+    .page-hero {
+      background: linear-gradient(115deg, #0F342C 0%, #1A5F47 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .page-hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 0.3rem 1.5rem;
+      border-radius: 60px;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      border-bottom: 3px solid #F5C542;
+    }
+    .page-hero p {
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    /* contact & involvement section */
+    .contact-involve {
+      padding: 4rem 0;
+    }
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 820px) {
+      .two-columns { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .info-card {
+      background: white;
+      border-radius: 36px;
+      padding: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      border: 1px solid #E2EBE4;
+    }
+    .info-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #0F2F2A;
+    }
+    .info-card p {
+      color: #2E4739;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .ways-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .ways-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+    }
+    .ways-list svg {
+      width: 24px;
+      height: 24px;
+      stroke: #1D9E75;
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .contact-details {
+      margin-top: 2rem;
+      background: #F4F8F5;
+      border-radius: 24px;
+      padding: 1.2rem;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .contact-row svg {
+      width: 20px;
+      height: 20px;
+      stroke: #1D9E75;
+    }
+    /* form */
+    .form-card {
+      background: white;
+      border-radius: 36px;
+      padding: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      border: 1px solid #E2EBE4;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1A2A1F;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1.5px solid #DAE6DF;
+      border-radius: 60px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+      background: #FEFCF5;
+    }
+    textarea {
+      border-radius: 28px;
+      resize: vertical;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #1D9E75;
+      box-shadow: 0 0 0 3px rgba(29,158,117,0.1);
+    }
+    .submit-btn {
+      width: 100%;
+      background: #1D9E75;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .submit-btn:hover {
+      background: #0F7A59;
+      transform: translateY(-2px);
+    }
+    .form-success {
+      background: #E1F5ED;
+      color: #085041;
+      padding: 1rem;
+      border-radius: 28px;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
+    /* testimonial / impact strip */
+    .impact-quote {
+      background: #EFF7F3;
+      padding: 3rem;
+      border-radius: 48px;
+      text-align: center;
+      margin: 2rem 0 0;
+    }
+    .impact-quote p {
+      font-size: 1.2rem;
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #1A3A2E;
+    }
+    .footer {
+      background: #0E241E;
+      color: #C7DCD2;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col h5 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li, .footer-links a {
+      color: #B7CFC2;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .footer-bottom {
+      border-top: 1px solid #2F4D42;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 720px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .container { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== SHARED NAVIGATION ===== -->
+<nav class="navbar" id="main-nav">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="#" data-page="index" class="navbar-brand">
+        <div class="brand-icon">MIF</div>
+        <div class="brand-text">
+          <span class="brand-name">Mzurayza Ingwenya Foundation</span>
+          <span class="brand-sub">Empowering Rural Youth · Est. 2019</span>
+        </div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="#" data-page="index" class="nav-link">Home</a></li>
+        <li><a href="#" data-page="aboutus" class="nav-link">About Us</a></li>
+        <li><a href="#" data-page="ourprograms" class="nav-link">Our Programs</a></li>
+        <li><a href="#" data-page="team" class="nav-link">Our Team</a></li>
+        <li><a href="#" data-page="contactus" class="nav-link nav-cta btn btn-primary active">Get Involved</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" data-page="index" class="nav-link">Home</a>
+    <a href="#" data-page="aboutus" class="nav-link">About Us</a>
+    <a href="#" data-page="ourprograms" class="nav-link">Our Programs</a>
+    <a href="#" data-page="team" class="nav-link">Our Team</a>
+    <a href="#" data-page="contactus" class="nav-link nav-cta btn btn-primary active">Get Involved</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero-eyebrow">✦ Join the movement ✦</span>
+      <h1>Get <em>Involved</em></h1>
+      <p>Your support — whether sponsorship, partnership, or volunteering — helps rural youth in KwaMaphumulo access sport, arts, culture and meaningful opportunities.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTACT + FORM -->
+  <section class="contact-involve">
+    <div class="container">
+      <div class="two-columns">
+        <!-- LEFT: Ways to get involved & direct contact -->
+        <div class="info-card reveal">
+          <h3>✧ How to partner with us</h3>
+          <p>Mzurayza Ingwenya Foundation welcomes individuals, corporates, government departments and international partners. Here's how you can help:</p>
+          <ul class="ways-list">
+            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> <strong>Sponsorship</strong> — Fund a programme, event, or prize pool (Youth School Championship, Ikhono Showcase, skill workshops).</li>
+            <li><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <strong>CSI Partnerships</strong> — Align your Corporate Social Investment with measurable rural impact.</li>
+            <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <strong>Volunteer</strong> — Join our event management, mentorship or workshop facilitation teams.</li>
+            <li><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <strong>In-kind donations</strong> — Sport kits, art supplies, sound equipment, trophies or catering.</li>
+          </ul>
+          <div class="contact-details">
+            <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.41 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg> <span><strong>Call us:</strong> 078 128 3909 (Mzuvele) / 079 542 2867 (Siyabonga)</span></div>
+            <div class="contact-row"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg> <span><strong>Email:</strong> enquiries.mif@gmail.com</span></div>
+            <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <span><strong>Visit:</strong> KwaMaphumulo, iLembe District, KZN</span></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: CONTACT FORM (full name, email, detailed message) -->
+        <div class="form-card reveal reveal-delay-1">
+          <h3>✉ Send us a message</h3>
+          <p style="margin-bottom: 1.5rem;">Tell us how you'd like to support or collaborate — we’ll get back to you within 48 hours.</p>
+          <form id="involvementForm">
+            <div class="form-group">
+              <label for="fullname">Full name *</label>
+              <input type="text" id="fullname" name="fullname" required placeholder="e.g., Thabo Nkosi">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address *</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label for="message">Detailed message *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="What would you like to discuss? Sponsorship, volunteering, partnership, donation? Let us know..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm interested in (optional)</label>
+              <select id="interest">
+                <option value="">-- Select an option --</option>
+                <option value="sponsorship">Sponsorship / CSI investment</option>
+                <option value="volunteer">Volunteering / Mentorship</option>
+                <option value="partnership">Partnership / Collaboration</option>
+                <option value="donation">In-kind or financial donation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Send message →</button>
+            <p id="formStatus" style="margin-top:1rem; font-size:0.85rem; text-align:center;"></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- inspirational quote / community impact note -->
+      <div class="impact-quote reveal reveal-delay-2">
+        <p>“The future is in our youth hands — and the legacy belongs to the next generation, including your kids. Investing in rural talent is investing in South Africa's creative & economic heartbeat.” — Mzuvele Mkhize, Founder</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER (identical to other pages) -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;">
+          <div class="brand-icon">MIF</div>
+          <div class="brand-text">
+            <span class="brand-name">Mzurayza Ingwenya Foundation</span>
+            <span class="brand-sub">Empowering Rural Youth</span>
+          </div>
+        </div>
+        <p>A registered Non-Profit Organisation empowering youth in KwaMaphumulo through sport, arts, culture & education since 2019.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#" data-page="index">Home</a></li>
+          <li><a href="#" data-page="aboutus">About Us</a></li>
+          <li><a href="#" data-page="ourprograms">Our Programs</a></li>
+          <li><a href="#" data-page="team">Our Team</a></li>
+          <li><a href="#" data-page="contactus">Get Involved</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="tel:0781283909">078 128 3909</a></li>
+          <li><a href="tel:0795422867">079 542 2867</a></li>
+          <li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li>
+          <li>KwaMaphumulo, KZN</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal, South Africa</span>
+      <span>Building brighter futures together</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // Navigation & router logic (for all data-page links)
+    const pages = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Get Involved' };
+    function setActive(pageId) {
+      document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        if(link.getAttribute('data-page') === pageId) link.classList.add('active');
+        else link.classList.remove('active');
+      });
+    }
+    function navigateTo(pageId) {
+      window.location.hash = pageId;
+      setActive(pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('[data-page]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = anchor.getAttribute('data-page');
+        if(target && pages[target]) navigateTo(target);
+      });
+    });
+    const currentHash = window.location.hash.slice(1) || 'contactus';
+    setActive(currentHash);
+    
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', (e) => {
+        if(!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        }
+      });
+      mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+    
+    // FORM HANDLING: full name, email, detailed message with validation + mock submission
+    const form = document.getElementById('involvementForm');
+    const statusPara = document.getElementById('formStatus');
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const interest = document.getElementById('interest').value;
+      
+      if (!fullname || !email || !message) {
+        statusPara.innerHTML = '<span style="color:#C2412C;">❌ Please fill in all required fields (name, email, message).</span>';
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        statusPara.innerHTML = '<span style="color:#C2412C;">❌ Please enter a valid email address.</span>';
+        return;
+      }
+      // simulate form submission (mock)
+      const submitBtn = form.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        // success simulation
+        statusPara.innerHTML = '<span style="color:#085041;">✓ Thank you, ' + fullname.split(' ')[0] + '! Your message has been sent. Our team will reach out within 48 hours.</span>';
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        // Clear success message after 6 seconds
+        setTimeout(() => {
+          if (statusPara) statusPara.innerHTML = '';
+        }, 6000);
+      }, 1200);
+    });
+    
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
+    
+    // navbar shadow scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : '';
+    });
+  })();
+</script>
+</body>
+</html>
