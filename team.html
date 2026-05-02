@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <!-- Favicon with proper sizing -->
-<link rel="icon" type="image/png" sizes="64x64" href="loogoo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="loogoo.png">
-<link rel="icon" type="image/png" sizes="16x16" href="loogoo.png">
-<link rel="apple-touch-icon" href="loogoo.png">
-<link rel="shortcut icon" href="loogoo.png">
+  <!-- Canonical URL - CRITICAL FOR SEO -->
+  <link rel="canonical" href="https://mifsa.co.za/team.html" />
+  <!-- Favicon with proper sizing -->
+  <link rel="icon" type="image/png" sizes="64x64" href="loogoo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="loogoo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="loogoo.png">
+  <link rel="apple-touch-icon" href="loogoo.png">
+  <link rel="shortcut icon" href="loogoo.png">
   <title>Our Team | Mzurayza Ingwenya Foundation</title>
   <meta name="description" content="Meet the dedicated team behind Mzurayza Ingwenya Foundation — young graduates and professionals from KwaMaphumulo driving real community change." />
   <style>
@@ -66,6 +68,11 @@
       border-radius: 999px;
       font-family: Georgia, serif;
       overflow: hidden;
+    }
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .brand-text {
       line-height: 1.3;
@@ -232,7 +239,7 @@
       font-size: 1.1rem;
       color: #2E4739;
     }
-    /* team cards creative */
+    /* team cards - PROFESSIONAL PORTRAIT STYLE (taller than wide) */
     .team-grid-full {
       display: flex;
       flex-direction: column;
@@ -254,19 +261,20 @@
       background: linear-gradient(105deg, white, #F9FFF9);
       border-left: 6px solid #F5C542;
     }
+    /* PROFESSIONAL PORTRAIT FRAME - taller than wide (120px width x 150px height) */
     .team-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 999px;
+      width: 130px;
+      height: 160px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2.2rem;
       font-weight: 700;
       color: white;
-      box-shadow: 0 12px 18px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
       flex-shrink: 0;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
       background: linear-gradient(145deg, #D48A2B, #F5C542);
     }
@@ -276,7 +284,8 @@
       object-fit: cover;
     }
     .team-card:hover .team-avatar {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.15);
     }
     .team-card h3 {
       font-size: 1.8rem;
@@ -398,17 +407,18 @@
       .bio { text-align: center; }
       .container { padding: 0 1.5rem; }
       section { padding: 3rem 0; }
+      .team-avatar { width: 110px; height: 140px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== SHARED NAVIGATION ===== -->
- <nav class="navbar" id="main-nav">
+<!-- ===== FIXED SHARED NAVIGATION - Direct file paths only ===== -->
+<nav class="navbar" id="main-nav">
   <div class="container">
     <div class="navbar-inner">
-      <a href="#" class="navbar-brand" data-nav-link="index">
-                <div class="brand-icon">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">
           <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
         </div>
         <div class="brand-text">
@@ -417,10 +427,10 @@
         </div>
       </a>
       <ul class="navbar-nav">
-        <li><a href="index.html"   class="nav-link">Home</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="aboutus.html" class="nav-link">About Us</a></li>
-        <li><a href="ourprograms.html"   class="nav-link">Our Programs</a></li>
-        <li><a href="team.html"   class="nav-link active">Our Team</a></li>
+        <li><a href="ourprograms.html" class="nav-link">Our Programs</a></li>
+        <li><a href="team.html" class="nav-link active">Our Team</a></li>
         <li><a href="contactus.html" class="nav-link nav-cta btn btn-primary">Get Involved</a></li>
       </ul>
       <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
@@ -429,13 +439,14 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" data-page="index" class="nav-link">Home</a>
-    <a href="aboutus.html"  class="nav-link">About Us</a>
-    <a href="ourprograms.html"  class="nav-link">Our Programs</a>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="ourprograms.html" class="nav-link">Our Programs</a>
     <a href="team.html" class="nav-link active">Our Team</a>
     <a href="contactus.html" class="nav-link nav-cta btn btn-primary">Get Involved</a>
   </div>
 </nav>
+
 <main>
   <!-- CREATIVE PAGE HERO -->
   <section class="page-hero">
@@ -446,11 +457,11 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION with actual PNG images -->
+  <!-- TEAM SECTION with larger professional portrait images -->
   <section class="team-section">
     <div class="container">
       <div class="reveal" style="max-width:600px;">
-        <span class="ebrow">Our leadership</span>
+        <span class="eyebrow">Our leadership</span>
         <h2 class="section-title">Rooted in Maphumulo, rising together</h2>
         <p class="section-lead">
           Every member of the MIF executive team was born in KwaMaphumulo. This isn't just a job for them — it's a mission forged in lived experience, love for arts and sport, and unwavering belief in rural youth.
@@ -471,60 +482,59 @@
             </p>
           </div>
         </div>
-<!-- Mthetheleli Msweli with image -->
-<div class="team-card reveal reveal-delay-4">
-  <div class="team-avatar">
-    <img src="mthetheleli.jpg" alt="Mthetheleli Msweli - Logistics">
-  </div>
-  <div>
-    <h3>Mthetheleli Msweli</h3>
-    <div class="role">Deputy Chairperson</div>
-    <p class="bio">A veteran of MIF's major events, Youth School Tournament, Maqadini Tournament and Maphumulo Festival, Mthetheleli turns big visions into on-the-ground realities. He holds a Degree in Health Care Management from DUT. His network and calm leadership make large-scale rural events possible.</p>
-  </div>
-</div>
 
-<!-- Siyabonga Majozi with image -->
-<div class="team-card reveal reveal-delay-1">
-  <div class="team-avatar">
-    <img src="Siyabonga.jpg" alt="Siyabonga Majozi - Secretary">
-  </div>
-  <div>
-    <h3>Siyabonga Majozi</h3>
-    <div class="role">Secretary</div>
-    <p class="bio">Siyabonga grew up in Maphumulo and has been part of MIF's core since 2022. He is currently completing his IT Honours degree at DUT. He manages digital promotion, livestreams, event systems and administration. His insight bridges rural traditions with new technology — making sure MIF stays future-ready.</p>
-  </div>
-</div>
+        <!-- Mthetheleli Msweli with image -->
+        <div class="team-card reveal reveal-delay-4">
+          <div class="team-avatar">
+            <img src="mthetheleli.jpg" alt="Mthetheleli Msweli - Logistics">
+          </div>
+          <div>
+            <h3>Mthetheleli Msweli</h3>
+            <div class="role">Deputy Chairperson</div>
+            <p class="bio">A veteran of MIF's major events, Youth School Tournament, Maqadini Tournament and Maphumulo Festival, Mthetheleli turns big visions into on-the-ground realities. He holds a Degree in Health Care Management from DUT. His network and calm leadership make large-scale rural events possible.</p>
+          </div>
+        </div>
 
-<!-- Philile Bhengu with image -->
-<div class="team-card reveal reveal-delay-2">
-  <div class="team-avatar">
-    <img src="philly.jpeg" alt="Philile Bhengu - Operations">
-  </div>
-  <div>
-    <h3>Philile Bhengu</h3>
-    <div class="role">Deputy Secretary</div>
-    <p class="bio">Philile is the engine behind MIF's flawless event delivery. She is currently completing her Degree in Public Administration: Supply Chain Management at DUT. From the Youth School Championship to Maqadini Tournament, her meticulous coordination and community-first approach have elevated every programme. She embodies grace under pressure and deep empathy for rural youth.</p>
-  </div>
-</div>
+        <!-- Siyabonga Majozi with image -->
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar">
+            <img src="Siyabonga.jpg" alt="Siyabonga Majozi - Secretary">
+          </div>
+          <div>
+            <h3>Siyabonga Majozi</h3>
+            <div class="role">Secretary</div>
+            <p class="bio">Siyabonga grew up in Maphumulo and has been part of MIF's core since 2022. He is currently completing his IT Honours degree at DUT. He manages digital promotion, livestreams, event systems and administration. His insight bridges rural traditions with new technology — making sure MIF stays future-ready.</p>
+          </div>
+        </div>
 
-    <!-- Qhawekazi Mtshali with image -->
-<div class="team-card reveal reveal-delay-3">
-  <div class="team-avatar">
-    <img src="qhawekazi.jpeg" alt="Qhawekazi Mtshali - Treasurer">
-  </div>
-  <div>
-    <h3>Qhawekazi Mtshali</h3>
-    <div class="role">Treasurer</div>
-    <p class="bio">Qhawekazi brings vibrant energy and authentic connection to every MIF initiative. She is currently completing her Diploma in Business Management at Elangeni College — a qualification that directly equips her to manage the organization's finances, track budgets, and lead sponsor acquisition efforts. Her experience spans from grassroots mobilisation to high-level programme planning. </p>
-  </div>
-</div>
+        <!-- Philile Bhengu with image -->
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar">
+            <img src="philly.jpeg" alt="Philile Bhengu - Operations">
+          </div>
+          <div>
+            <h3>Philile Bhengu</h3>
+            <div class="role">Deputy Secretary</div>
+            <p class="bio">Philile is the engine behind MIF's flawless event delivery. She is currently completing her Degree in Public Administration: Supply Chain Management at DUT. From the Youth School Championship to Maqadini Tournament, her meticulous coordination and community-first approach have elevated every programme. She embodies grace under pressure and deep empathy for rural youth.</p>
+          </div>
+        </div>
 
-        
+        <!-- Qhawekazi Mtshali with image -->
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-avatar">
+            <img src="qhawekazi.jpeg" alt="Qhawekazi Mtshali - Treasurer">
+          </div>
+          <div>
+            <h3>Qhawekazi Mtshali</h3>
+            <div class="role">Treasurer</div>
+            <p class="bio">Qhawekazi brings vibrant energy and authentic connection to every MIF initiative. She is currently completing her Diploma in Business Management at Elangeni College — a qualification that directly equips her to manage the organization's finances, track budgets, and lead sponsor acquisition efforts. Her experience spans from grassroots mobilisation to high-level programme planning.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CREATIVE CULTURE SECTION (dynamic) -->
+  <!-- CREATIVE CULTURE SECTION -->
   <section class="culture-section">
     <div class="container">
       <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto;">
@@ -552,7 +562,7 @@
         Be a partner, sponsor or supporter. Let's build the most vibrant rural youth ecosystem in KZN — together.
       </p>
       <div class="cta-banner-btns">
-        <a href="team.html" class="btn btn-primary">Connect With Our Team</a>
+        <a href="contactus.html" class="btn btn-primary">Connect With Our Team</a>
         <a href="ourprograms.html" class="btn btn-outline" style="border-color:white; color:white;">Explore Our Impact</a>
       </div>
     </div>
@@ -563,10 +573,16 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;">     <div class="brand-icon">
-          <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
-        </div><div class="brand-text"><span class="brand-name">Mzurayza Ingwenya Foundation</span><span class="brand-sub">Empowering Rural Youth</span></div></div><p>A registered Non-Profit Organisation empowering the youth of KwaMaphumulo through sport, arts, culture and education since 2019.</p></div>
-      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="ourprograms.html">Our Programs</a></li><li><a href="team.html" >Our Team</a></li><li><a href="contactus.html">Contact Us</a></li></ul></div>
+      <div class="footer-brand">
+        <div class="navbar-brand" style="margin-bottom:1rem; justify-content:flex-start;">
+          <div class="brand-icon">
+            <img src="loogoo.png" alt="Mzurayza Ingwenya Foundation Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;">
+          </div>
+          <div class="brand-text"><span class="brand-name">Mzurayza Ingwenya Foundation</span><span class="brand-sub">Empowering Rural Youth</span></div>
+        </div>
+        <p>A registered Non-Profit Organisation empowering the youth of KwaMaphumulo through sport, arts, culture and education since 2019.</p>
+      </div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="ourprograms.html">Our Programs</a></li><li><a href="team.html">Our Team</a></li><li><a href="contactus.html">Contact Us</a></li></ul></div>
       <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="tel:0781283909">078 128 3909 - Mzuvele</a></li><li><a href="tel:0795422867">079 542 2867 - Siyabonga</a></li><li><a href="mailto:enquiries.mif@gmail.com">enquiries.mif@gmail.com</a></li><li>KwaMaphumulo, KwaZulu-Natal</li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2025 Mzurayza Ingwenya Foundation · NPO · KwaZulu-Natal</span><span>Inspiring rural youth, one event at a time.</span></div>
@@ -575,30 +591,7 @@
 
 <script>
   (function() {
-    // nav routing + active class
-    const pages = { index: 'Home', aboutus: 'About Us', ourprograms: 'Our Programs', team: 'Our Team', contactus: 'Contact Us' };
-    function setActive(pageId) {
-      document.querySelectorAll('.nav-link[data-page]').forEach(link => {
-        if(link.getAttribute('data-page') === pageId) link.classList.add('active');
-        else link.classList.remove('active');
-      });
-    }
-    function navigateTo(pageId) {
-      window.location.hash = pageId;
-      setActive(pageId);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    document.querySelectorAll('[data-page]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = anchor.getAttribute('data-page');
-        if(target && pages[target]) navigateTo(target);
-      });
-    });
-    const initHash = window.location.hash.slice(1) || 'team';
-    setActive(initHash);
-    
-    // mobile toggle
+    // Mobile menu toggle
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if(hamburger && mobileMenu) {
@@ -619,13 +612,15 @@
         });
       });
     }
-    // reveal observer
+    
+    // Scroll reveal observer
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
     }, { threshold: 0.12 });
     reveals.forEach(r => observer.observe(r));
-    // navbar shadow
+    
+    // Navbar shadow on scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => { navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : ''; });
   })();
