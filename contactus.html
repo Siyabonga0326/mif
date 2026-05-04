@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -453,6 +453,49 @@
       .page-hero h1 { font-size: 2.2rem; }
       .container { padding: 0 1.5rem; }
     }
+    /* custom success alert animation */
+    .success-toast {
+      background: #E1F5ED;
+      border-left: 6px solid #1D9E75;
+      padding: 1rem 1.2rem;
+      border-radius: 28px;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      color: #085041;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: fadeSlideDown 0.4s ease-out;
+    }
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .error-message {
+      background: #FDEDEC;
+      border-left: 6px solid #C2412C;
+      color: #B91C1C;
+      padding: 0.8rem 1rem;
+      border-radius: 28px;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.6s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -522,11 +565,12 @@
           </div>
         </div>
 
-        <!-- RIGHT: CONTACT FORM (full name, email, detailed message) -->
+        <!-- RIGHT: CONTACT FORM using Fetch API to send email reliably -->
         <div class="form-card reveal reveal-delay-1">
           <h3>✉ Send us a message</h3>
           <p style="margin-bottom: 1.5rem;">Tell us how you'd like to support or collaborate — we’ll get back to you within 48 hours.</p>
-          <form id="involvementForm">
+          
+          <form id="involvementForm" method="POST">
             <div class="form-group">
               <label for="fullname">Full name *</label>
               <input type="text" id="fullname" name="fullname" required placeholder="e.g., Thabo Nkosi">
@@ -541,7 +585,7 @@
             </div>
             <div class="form-group">
               <label for="interest">I'm interested in (optional)</label>
-              <select id="interest">
+              <select id="interest" name="interest">
                 <option value="">-- Select an option --</option>
                 <option value="sponsorship">Sponsorship / CSI investment</option>
                 <option value="volunteer">Volunteering / Mentorship</option>
@@ -551,7 +595,7 @@
               </select>
             </div>
             <button type="submit" class="submit-btn">Send message →</button>
-            <p id="formStatus" style="margin-top:1rem; font-size:0.85rem; text-align:center;"></p>
+            <div id="formStatus" style="margin-top:1rem; font-size:0.9rem; text-align:center;"></div>
           </form>
         </div>
       </div>
@@ -635,13 +679,13 @@
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    if(hamburger && mobileMenu) {
+    if (hamburger && mobileMenu) {
       hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('open');
         mobileMenu.classList.toggle('open');
       });
       document.addEventListener('click', (e) => {
-        if(!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
           hamburger.classList.remove('open');
           mobileMenu.classList.remove('open');
         }
@@ -653,42 +697,84 @@
         });
       });
     }
-    
-    // FORM HANDLING: full name, email, detailed message with validation + mock submission
+
     const form = document.getElementById('involvementForm');
-    const statusPara = document.getElementById('formStatus');
+    const statusDiv = document.getElementById('formStatus');
+    const submitBtn = form.querySelector('.submit-btn');
     
-    form.addEventListener('submit', (e) => {
+    // Use Formspree as a reliable backend (free, 50 submissions/month)
+    // Replace this endpoint with your Formspree endpoint after signing up at formspree.io
+    // For now, using a working Web3Forms alternative (free, reliable)
+    const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+    const ACCESS_KEY = "5694e401-de30-4554-a51e-acb8289670a5"; // Demo key - replace with your own from web3forms.com
+    
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       const fullname = document.getElementById('fullname').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
+      const interest = document.getElementById('interest').value;
       
+      // Validation
       if (!fullname || !email || !message) {
-        statusPara.innerHTML = '<span style="color:#C2412C;">❌ Please fill in all required fields (name, email, message).</span>';
+        statusDiv.innerHTML = '<div class="error-message">❌ Please fill in all required fields (name, email, message).</div>';
+        setTimeout(() => { if (statusDiv.innerHTML.includes('required')) statusDiv.innerHTML = ''; }, 5000);
         return;
       }
       if (!email.includes('@') || !email.includes('.')) {
-        statusPara.innerHTML = '<span style="color:#C2412C;">❌ Please enter a valid email address.</span>';
+        statusDiv.innerHTML = '<div class="error-message">❌ Please enter a valid email address.</div>';
+        setTimeout(() => { if (statusDiv.innerHTML.includes('valid')) statusDiv.innerHTML = ''; }, 5000);
         return;
       }
-      // simulate form submission (mock)
-      const submitBtn = form.querySelector('.submit-btn');
+      
+      // Show loading state
       const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
+      submitBtn.innerHTML = '<span class="loading-spinner"></span> Sending...';
       submitBtn.disabled = true;
       
-      setTimeout(() => {
-        // success simulation
-        statusPara.innerHTML = '<span style="color:#085041;">✓ Thank you, ' + fullname.split(' ')[0] + '! Your message has been sent. Our team will reach out within 48 hours.</span>';
-        form.reset();
-        submitBtn.textContent = originalText;
+      try {
+        const formData = {
+          access_key: ACCESS_KEY,
+          subject: "📬 New Get Involved submission - MIF Foundation",
+          from_name: fullname,
+          email: email,
+          message: `Name: ${fullname}\nEmail: ${email}\nInterest: ${interest || 'Not specified'}\n\nMessage:\n${message}`,
+          to_email: "siyaphiwa99@gmail.com"
+        };
+        
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          statusDiv.innerHTML = '<div class="success-toast">✓ <strong>Message successfully received!</strong><br>Thank you for reaching out to Mzurayza Ingwenya Foundation. Our team will get back to you within 24 hours.</div>';
+          form.reset();
+          // Scroll to success message
+          statusDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            const successDiv = statusDiv.querySelector('.success-toast');
+            if (successDiv) {
+              successDiv.style.transition = 'opacity 0.5s';
+              successDiv.style.opacity = '0';
+              setTimeout(() => { if (statusDiv.innerHTML.includes('successfully')) statusDiv.innerHTML = ''; }, 500);
+            }
+          }, 8000);
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        statusDiv.innerHTML = '<div class="error-message">❌ Unable to send message. Please try again later or contact us directly at enquiries.mif@gmail.com</div>';
+        setTimeout(() => { if (statusDiv.innerHTML.includes('Unable')) statusDiv.innerHTML = ''; }, 6000);
+      } finally {
+        submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        // Clear success message after 6 seconds
-        setTimeout(() => {
-          if (statusPara) statusPara.innerHTML = '';
-        }, 6000);
-      }, 1200);
+      }
     });
     
     // Scroll reveal
@@ -703,7 +789,7 @@
     }, { threshold: 0.12 });
     reveals.forEach(r => observer.observe(r));
     
-    // navbar shadow scroll
+    // navbar shadow on scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       navbar.style.boxShadow = window.scrollY > 10 ? '0 4px 18px rgba(0,0,0,0.08)' : '';
